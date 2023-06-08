@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOTACOM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Inicio de encabezado-->
+  <header class="header">
+    <div class="Menu container">
+      <a href="#" class="logo"><img src="imagenes/inicio/inicio1.png"  width="100" height="100" alt="">VOTACOM</a>
+      <input type="checkbox" id="Menu" />
+      <nav class="navbar">
+        <ul>
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./Deportes.html">Deportes</a></li>
+          <li><a href="./Artes.html">Artes</a></li>
+          <li><a href="./Comida.html">Comida</a></li>
+          <li><a  href="./Musica.html">Música</a></li>
+      </ul>
+      </nav>
+    </div>
+    <!--Inicio la clase que preguntara cuantas personas votaran dentro del encabezado-->
+    <div class="pregunta">
+      <!-- <form class="nuVotantes"> -->
+        <label for="numVotantes">Dar clik en Comenzar votacion</label>
+        <!-- <input type="number" id="numVotantes" name="numVotantes" min="2" required> -->
+        <!-- <button type="submit" onclick="preguntarNumeroVotantes()">Enviar</button> -->
+      <!-- </form>       -->
+    </div>
+    <!--Fin la clase que preguntara cuantas personas votaran dentro del encabezado-->
+  </header>
+  <!--Fin del encabezado-->
+
+  <!--Inicio de la sección de los candidatos-->
+  <section class="candi">
+    <!--Inicio de los iconos de los candidatos-->
+    <div class="container-cand">
+      <div class="avatar">
+        <img src="imagenes/Candidatos/Deporte1.jpg" width="150" height="150" alt=" " />
+        <h1>Futbol</h1>
+      </div>
+      <div class="avatar">
+        <img src="imagenes/Candidatos/Deporte2.jpg" width="150" height="150" alt=" " />
+        <h1>Basquetbol</h1>
+      </div>
+      <div class="avatar">
+        <img src="imagenes/Candidatos/Deporte3.jpg" width="150" height="150" alt=" " />
+        <h1>Beisbol</h1>
+      </div>
+      <div class="avatar">
+        <img src="imagenes/Candidatos/Deporte4.jpg" width="150" height="150" alt=" " />
+        <h1>Voleibol</h1>
+      </div>
+      <div class="avatar">
+        <img src="imagenes/Candidatos/Deporte5.jpg" width="150" height="150" alt=" " />
+        <h1>Golf</h1>
+      </div>
+      <div class="avatar">
+        <img src="imagenes/Candidatos/Deporte6.jpg" width="150" height="150" alt=" " />
+        <h1>Tenis</h1>
+      </div>
+      <div class="avatar">
+        <img src="imagenes/Candidatos/Deporte7.jpg" width="150" height="150" alt=" " />
+        <h1>Natación</h1>
+      </div>
+      <div class="avatar">
+        <img src="imagenes/Candidatos/Deporte8.jpg" width="150" height="150" alt=" " />
+        <h1>Ciclismo</h1>
+      </div>
+      <div class="avatar">
+        <img src="imagenes/Candidatos/Deporte9.jpg" width="150" height="150" alt=" " />
+        <h1>Atletismo</h1>
+      </div>
+      <div class="avatar">
+        <img src="imagenes/Candidatos/Deporte10.jpg" width="150" height="150" alt=" " />
+        <h1>Gimnasia</h1>
+      </div>
+      <div class="avatar">
+        <img src="imagenes/Candidatos/Deporte11.jpg" width="150" height="150" alt=" " />
+        <h1>Patinaje</h1>
+      </div>
+      <div class="avatar">
+        <img src="imagenes/Candidatos/Deporte12.jpg" width="150" height="150" alt=" " />
+        <h1>Boxeo</h1>
+      </div>
+    </div>
+    <!--Fin de los iconos de los candidatos-->
+  </section>
+  <!--Fin de la sección de los candidatos-->
+
+ <!-- </section> -->
+ <section class="vot">
+  <div class="container">
+    <div class="header2" class="columna-izquierda">
+      <!--recopilacion de datos-->
+      <div id="id01" class="modal">
+        <script>
+        var rondas = 0; // Variable para realizar el seguimiento del número de rondas
+        var rond = 1;
+        var votosRondas = []; // Array para almacenar los votos de cada ronda
+        var votos = [];
+        let numPersonas;
+        let numPersona;
+        let banderaCandidato = false;
+        var resultadosRondaActual = '';
+        var votosRondaActual = [];
+        var candidatosMasVotados = [];
+        function crearFormulario() {
+          numPersonas = parseInt(prompt("¿Cuántas personas votarán?"));
+          if (numPersonas < 2) {
+            alert("Se requieren al menos 2 personas para votar.");
+            return;
+          }
+          var formularioHTML = '';
+          for (var i = 1; i <= numPersonas; i++) {
+            formularioHTML +=' <form class="formreg" action="http://localhost/votacom/registro.php" id="register"  method="POST">';
+            formularioHTML += '<p>Persona ' + i + ':</p>';
+            formularioHTML += '<label>Nombre: <input type="text" id="nombre' + i + '" name="nombre" required class="textt" ></label>';
+            formularioHTML += '<label for="voto' + i + '">Voto: </label>';
+            formularioHTML += '<select id="voto' + i + '" required class="opcio">';
+            formularioHTML += '<option value="">-- Seleccione una opción --</option>';
+            formularioHTML += '<option value="Futbol">Futbol</option>';
+            formularioHTML += '<option value="Basquetbol">Basquetbol</option>';
+            formularioHTML += '<option value="Beisbol">Beisbol</option>';
+            formularioHTML += '<option value="Voleibol">Voleibol</option>';
+            formularioHTML += '<option value="Golf">Golf</option>';
+            formularioHTML += '<option value="Tenis">Tenis</option>';
+            formularioHTML += '<option value="Natación">Natación</option>';
+            formularioHTML += '<option value="Ciclismo">Ciclismo</option>';
+            formularioHTML += '<option value="Atletismo">Atletismo</option>';
+            formularioHTML += '<option value="Gimnasia">Gimnasia</option>';
+            formularioHTML += '<option value="Patinaje">Patinaje</option>';
+            formularioHTML += '<option value="Boxeo">Boxeo</option>';
+            formularioHTML += '</select>';
+            formularioHTML += '<br>';
+            formularioHTML += '<div><br></div>';
+            formularioHTML += '<br>';
+            formularioHTML +='</form>';
+          }
+          
+          formularioHTML += '<button onclick="recopilarVotos(numPersonas)">Enviar Votos</button>';
+          document.getElementById("formulario").innerHTML = formularioHTML;
+        }
+        function mostrarVotosPorCandidato() {
+          var votosPorCandidato = {};
+          // Contar los votos para cada candidato
+          for (var i = 0; i < votos.length; i++) {
+            var voto = votos[i].voto;
+            if (votosPorCandidato[voto]) {
+              votosPorCandidato[voto]++;
+            } else {
+              votosPorCandidato[voto] = 1;
+            }
+          }
+          // Mostrar los votos por candidato
+          var resultados = '';
+          for (var candidato in votosPorCandidato) {
+            resultados += 'Candidato: ' + candidato + ' - Votos: ' + votosPorCandidato[candidato] + '\n';
+          }
+          alert(resultados);
+        }
+        function recopilarVotos(numPersonas) {
+          alert("Gracias por votar!");
+          var formdata = new FormData();
+          for (var i = 1; i <= numPersonas; i++) {
+            var nombre = document.getElementById("nombre" + i).value;
+            formdata.append('nombres[]', nombre);
+          }
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "http://localhost/votacom/registro.php", true);
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+              // Aquí puedes realizar acciones después de guardar los datos en la base de datos
+              console.log("Datos guardados en la base de datos");
+            }
+          };
+          xhr.send(formdata);
+          votos = [];
+          var votosPorCandidato = {};
+          for (var i = 1; i <= numPersonas; i++) {
+            var nombre = document.getElementById("nombre" + i).value;
+            var voto = document.getElementById("voto" + i).value;
+            var votoPersona = {
+              nombre: nombre,
+              voto: voto
+            };
+            votos.push(votoPersona);
+
+            // Contar los votos para cada candidato
+            if (votosPorCandidato[voto]) {
+              votosPorCandidato[voto]++;
+            } else {
+              votosPorCandidato[voto] = 1;
+            }
+          }
+          // Encontrar el número mínimo de votos
+          var minVotos = Math.min(...Object.values(votosPorCandidato));
+          // Filtrar los votos para excluir a los candidatos menos votados
+          var votosFiltrados = votos.filter(function(votoPersona) {
+            return votosPorCandidato[votoPersona.voto] > minVotos;
+          });
+          // Aquí puedes hacer lo que desees con los votos filtrados
+          console.log(votos);
+          candidatosMasVotados = obtenerCandidatosMasVotados(votosPorCandidato);
+          alert("Votos de la ronda " + rond + ":\n" + resultadosRondaActual);
+          mostrarVotosPorCandidato();
+//           alert("Los candidatos que pasaron la ronda de eliminación aparecera cuando seleccione una opción");
+          rond++;
+          //alert("Votos de la ronda " + rond + ":\n" + resultadosRondaActual);
+          if(banderaCandidato == false){
+            numPersona = parseInt(prompt("¿Cuántas personas votarán en la siguiente ronda?"));
+            if (numPersona < 2) {
+              alert("Se requieren al menos 2 personas para votar.");
+              return;
+            }
+          }else{
+            console.log("LIsto");
+          }
+          // Volver a crear el formulario solo con los candidatos más votados
+          var formularioHTML = '';
+          for (var i = 1; i <= numPersona; i++) {
+            formularioHTML += '<p>Persona ' + i + ':</p>';
+            formularioHTML += '<label>Nombre: <input type="text" id="nombre' + i + '" required class="textt" ></label>';
+            formularioHTML += '<label for="voto' + i + '">Voto: </label>';
+            formularioHTML += '<select id="voto' + i + '" required class="opcio">';
+            formularioHTML += '<option value="">-- Seleccione una opción --</option>';
+             // Agregar solo los candidatos más votados al formulario
+             for (var j = 0; j < candidatosMasVotados.length; j++) {
+              formularioHTML += '<option value="' + candidatosMasVotados[j] + '">' + candidatosMasVotados[j] + '</option>';
+            }
+            formularioHTML += '</select>';
+            formularioHTML += '<br>';
+            formularioHTML += '<div><br></div>';
+            formularioHTML += '<br>';
+          }
+          formularioHTML += '<button onclick="recopilarVotos(numPersona)">Enviar Votos</button>';
+          document.getElementById("formulario").innerHTML = formularioHTML;
+          repetirVotacion();
+        }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////              
+        function repetirVotacion() {
+          rondas++;
+          votosRondaActual = []; // Array para almacenar los votos de la ronda actual
+          votosRondas.push(votosRondaActual); // Agregar los votos de la ronda actual al array de votos de las rondas
+          // Filtrar los candidatos más votados de la ronda anterior
+          candidatosMasVotados = [];
+          if (rondas > 1) {
+            var votosRondaAnterior = votosRondas[rondas - 2]; // Obtener los votos de la ronda anterior
+            candidatosMasVotados = obtenerCandidatosMasVotados(votosRondaAnterior);
+          }
+          // Verificar si solo queda un candidato de los más votados
+          if (candidatosMasVotados.length === 1) {
+            // Mostrar el candidato ganador
+            var candidatoGanador = candidatosMasVotados[0];
+            alert("El candidato ganador es: " + candidatoGanador);
+            banderaCandidato = true;
+            document.getElementById("formulario").innerHTML = '<label>Votación finalizada.</label>';
+            return;
+          }
+        }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        function obtenerCandidatosMasVotados(votosPorCandidato) {
+          var maxVotos = Math.max(...Object.values(votosPorCandidato));
+          var candidatosMasVotados = Object.keys(votosPorCandidato).filter(function(voto) {
+            return votosPorCandidato[voto] === maxVotos;
+          });
+          return candidatosMasVotados;
+        }
+        function mostrarCandidatosMenosVotados() {
+          var votosPorCandidato = contarVotosPorCandidato();
+          // Encontrar el número mínimo de votos
+          var minVotos = Math.min(...Object.values(votosPorCandidato));
+          // Filtrar los candidatos menos votados
+          var candidatosMenosVotados = Object.keys(votosPorCandidato).filter(function(voto) {
+            return votosPorCandidato[voto] === minVotos;
+          });
+          // Mostrar los candidatos menos votados
+          alert("Los candidatos menos votados son: " + candidatosMenosVotados.join(", "));
+        }
+        function contarVotosPorCandidato() {
+          var votosPorCandidato = {};
+          // Contar los votos para cada candidato
+          for (var i = 0; i < votos.length; i++) {
+            var voto = votos[i].voto;
+            if (votosPorCandidato[voto]) {
+              votosPorCandidato[voto]++;
+            } else {
+              votosPorCandidato[voto] = 1;
+            }
+          }
+          return votosPorCandidato;
+        }
+        // Función para obtener los candidatos más votados de la ronda anterior
+        function obtenerCandidatosMasVotados() {
+          var votosPorCandidato = {};
+          // Contar los votos para cada candidato
+          for (var i = 0; i < votos.length; i++) {
+            var voto = votos[i].voto;
+            if (votosPorCandidato[voto]) {
+              votosPorCandidato[voto]++;
+            } else {
+              votosPorCandidato[voto] = 1;
+            }
+          }
+          // Encontrar el número máximo de votos
+          var maxVotos = Math.max(...Object.values(votosPorCandidato));
+          // Filtrar los candidatos más votados
+          var candidatosMasVotados = Object.keys(votosPorCandidato).filter(function (voto) {
+            return votosPorCandidato[voto] === maxVotos;
+          });
+          return candidatosMasVotados;
+        }
+        // Función para obtener los candidatos más votados de la ronda anterior
+        function obtenerCandidatosMasVotados() {
+          var votosPorCandidato = {};
+          // Contar los votos para cada candidato
+          for (var i = 0; i < votos.length; i++) {
+            var voto = votos[i].voto;
+            if (votosPorCandidato[voto]) {
+              votosPorCandidato[voto]++;
+            } else {
+              votosPorCandidato[voto] = 1;
+            }
+          }
+          // Encontrar el número máximo de votos
+          var maxVotos = Math.max(...Object.values(votosPorCandidato));
+          // Filtrar los candidatos más votados
+          var candidatosMasVotados = Object.keys(votosPorCandidato).filter(function (voto) {
+            return votosPorCandidato[voto] === maxVotos;
+          });
+          return candidatosMasVotados;
+        }
+          </script>
+        <div id="formulario">
+          <button onclick="crearFormulario()">Comenzar Votación</button>
+        </div>
+      </div>
+      <!--Fin de la recopilación de datos-->
+    </div>
+    <div class="header3" class="columna-derecha">
+      <!--Boton para mostrar resultados-->
+      <!-- <div class="mostrar"> 
+        <button type="button" id="btn-resultados">Mostrar resultados</button>
+       </div>-->
+       <div class="mostrar">
+        <button type="button" id="btn-resultados" onclick="mostrarCandidatosMenosVotados()">Mostrar candidatos menos votados</button>
+      </div>
+      <!-- <div class="mostrar"> 
+        <button type="button" id="btn-resultados" onclick="mostrarCandidatosMasVotados()">Mostrar candidatos mas votados</button>
+      </div>-->
+       <!--Fin del boton de mostrar resultados-->
+      <!-- </div> -->
+    </div>
+  </section>
+</body>
+</html>
+
+
+

@@ -1,0 +1,562 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Pacifico&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    font-family: 'Pacifico', cursive;
+    font-family: 'Noto Serif', serif;
+}
+.contanier{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header{
+    background-image: linear-gradient(
+      rgba(216, 21, 184, 0.7),
+      rgba(169, 28, 103, 0.7),
+      rgba(132, 16, 216, 0.7)),
+      url(imagenes/inicio/inicio9.png);
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+}
+.Menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+   justify-content: space-between;
+}
+.logo{
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    font-weight: 800;
+}
+.Menu .navbar ul li{
+    position: relative;
+    float: left;
+}
+.Menu .navbar ul li a{
+    font-size: 23px;
+    padding: 20px;
+    color: azure;
+    display: block;
+   /* font-weight: 100;*/
+}
+.Menu .navbar ul li a:hover{
+    color: blueviolet;
+}
+#Menu{
+    display: none;
+}
+.Menu-icono{
+    width: 25px;
+    float: left;
+}
+.Menu label{
+    cursor: pointer;
+    /*display: none;*/
+}
+.header-content{
+    text-align: center;
+}
+.header-content h1{
+    font-size: 60px;
+    line-height: 70px;
+    color: azure;
+    /*text-transform: uppercase;*/
+   margin-bottom: 35px;
+}
+.header-content p{
+    font-size: 16px;
+    color: azure;
+    padding: 0px 150px;
+    margin-bottom: 25px;
+}
+p{
+  color: #10c32e;
+  font-size: 20px;
+}
+.btn-1{
+    display: inline-block;
+    padding: 11px 35px;
+    background-color: rgba(204, 0, 255, 0.91);
+    color: bisque;
+}
+.btn-1:hover{
+    background-color: rgb(113, 43, 226);
+}
+.header2{
+  background-image: linear-gradient(
+    rgba(216, 21, 184, 0.7),
+    rgba(169, 28, 103, 0.7),
+    rgba(64, 36, 83, 0.7)),
+    url(imagenes/inicio/inicio5.jpg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+.header3{
+  background-image: linear-gradient(
+    rgba(216, 21, 184, 0.7),
+    rgba(169, 28, 103, 0.7),
+    rgba(64, 36, 83, 0.7)),
+    url(imagenes/inicio/inicio4.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+.pregunta{
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+}
+.pregunta button{
+  background-color: transparent ;
+  border-radius: 30px;
+  border-color: #fdb5db;
+  display: inline-block;
+  padding: 11px 35px;
+  font-size: 30px;
+  /*color: rgb(0, 0, 0);*/
+}
+.pregunta button:hover{
+  background-color: #fec5e5;
+}
+/*Inincio donde se ponen los numeros para preguntar votantes*/
+.pregunta input{
+  background-color: #10bac3 ;
+  border-radius: 10px;
+  border-color: transparent;
+  width: 100px;
+	height: 40px;
+  color: #C60FEA ;
+  font-size: 30px;
+}
+.candi{
+    padding: 0 0;
+    /*background-color: rgb(26, 237, 110);*/
+    position: relative;
+}
+.candi .container  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px;
+  }
+
+.vot{
+    padding: 0 0;
+    /*background-color: rgb(26, 237, 110);*/
+    position: relative;
+}
+.vot .container  {
+  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px;
+  }
+
+.modal .opcio option{
+    font-size: 18px;
+    padding: 80px;
+    color: rgb(198, 19, 221);
+    display: block;
+}
+.modal select{
+  appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.modal select:-ms-expand{
+  display: none;
+}
+
+.modal select{
+  display: inline-block;
+	width: 100%;/*cambie esta parte 18/05/2023*/
+	cursor: pointer;
+  	padding: 7px 10px;
+  	height: 42px;
+  	outline: 0; 
+  	border: 0;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #7b7b7b;
+	font-size: 1em;
+	color: #999;
+	font-family: 'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+.modal select:hover{
+  background: #10c32e;
+}
+
+.modal select i{
+  position: absolute;
+	right: 20px;
+	top: calc(50% - 13px);
+	width: 16px;
+	height: 16px;
+	display: block;
+	border-left:4px solid #1b55de;
+	border-bottom:4px solid #eacf04;
+	transform: rotate(-45deg); /* Giramos el cuadrado */
+	transition: all 0.25s ease;
+}
+
+.modal:hover{
+  margin-top: 3px;
+}
+
+.modal label{
+    font-size: 30px;
+    padding: 15px;
+    color: rgb(237, 241, 246);
+    display: block;
+}/*
+.columna-izquierda {
+    display: inline-block;
+    padding: 50px 0px;
+    color: rgb(244, 255, 196);
+    background-image: linear-gradient(
+        rgba(216, 21, 184, 0.7),
+        rgba(169, 28, 103, 0.7),
+        rgba(64, 36, 83, 0.7)),
+        url(imagenes/inicio/inicio5.jpg);
+        background-position: center bottom;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100vh;
+  }
+  
+  .columna-derecha {
+    padding: 50px 0px;
+    color: rgb(244, 255, 196);
+    background-image: linear-gradient(
+        rgba(216, 21, 184, 0.7),
+        rgba(169, 28, 103, 0.7),
+        rgba(64, 36, 83, 0.7)),
+        url(imagenes/inicio/inicio4.png);
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+    height: 100vh;
+  }*/
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+.candi{
+  background-image: linear-gradient(
+    rgba(216, 21, 184, 0.7),
+    rgba(169, 28, 169, 0.7),
+    rgba(198, 33, 195, 0.7)),
+    url(imagenes/inicio/inicio3.png);
+    color: #fff;
+  text-align: center;
+}
+.candi .container-cand{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.avatar{
+  margin: 20px;
+}
+.avatar img{
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 5px white solid;
+}
+.avatar {/*
+	width: 200px;
+	height: 200px;*/
+	box-sizing: border-box;
+	border: 5px white solid;
+	/*border-radius: 50%;*/
+	overflow: hidden;
+	box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+	transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
+	
+}
+/*inicio cuadro donde se escribe el nombre*/
+.vot .textt {
+	width: 400px;
+	height: 70px;
+  color: rgb(21, 217, 135);
+  font-size: 30px;
+}
+.textt{
+ /* background-color: transparent ;/*Para poner el fondo transparente*/
+  background-color: #8B0F7A ;
+  border-radius: 50px;
+  border-color: transparent;/*Para poner el borde transparente*/
+}
+/*inicio del centrado de mi div*/
+.vot .container .columna-izquierda .modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*fin del centrado de mi div*/
+
+/*fin cuadro donde se escribe el nombre*/
+@media(min-width:480px){
+  .avatar{
+    width: 40%;
+  }
+}
+@media(min-width:1024px){
+  .avatar{
+    width: auto;
+  }
+}
+.content {
+	width: 100%;
+	max-width: 600px;
+	padding: 20px 40px;
+	box-sizing: border-box;
+	text-align: center;
+}
+.mostrar button{
+  background-color: #8B0F7A ;
+  border-radius: 30px;
+  border-color: transparent;
+  display: inline-block;
+  padding: 11px 35px;
+  font-size: 30px;
+  color: rgb(21, 217, 135);
+}
+.mostrar button:hover{
+  background-color: black;
+}
+.mostrar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal button{
+  background-color: #0f198b ;
+  border-radius: 30px;
+  border-color: transparent;
+  display: inline-block;
+  padding: 11px 35px;
+  font-size: 30px;
+  color: rgb(21, 217, 135);
+}
+.modal button:hover{
+  background-color: bisque;
+}
+
+
+
+
+
+
+
+
+/*
+.vot .contanier .columna-izquierda .modal .form{
+	width:300px;
+	padding:16px;
+	border-radius:10px;
+	margin:auto;
+	background-color:#d02626;
+}
+
+
+ /* .columna-derecha .mostrar button{*/
+    /*
+    display: inline-block;
+    padding: 11px 35px;
+    background-color: rgba(204, 0, 255, 0.91);
+    color: bisque;*/
+   /* width: 110px; /* Para que no se rompa en dos líneas, y lo translade tal cual. */
+  /*margin-left: 50%;
+  transform: translateX(-50%);
+    background: black;
+    cursor: pointer;
+    border: none;
+    padding: 16px 100px;
+    color: azure;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    border-radius: 12px;*/
+  /*}*/
+  /*.columna-derecha.mostrar button:hover{
+    /*background-color: rgb(153, 226, 43);
+  }/*
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+         red,blue,deeppink,blue,
+         red,blue,deeppink,blue);
+    background-size: 800%;
+    border-radius: 10px;
+    filter:blur(8px);
+    animation: glowing 20s linear infinite;
+  }*/
+/*texto del candidato*/
+/*
+h1 {
+	font-size: 24px;
+	margin: 10px 0 0 0;
+	font-weight: lighter;
+	text-transform: uppercase;
+	color: #df1212;
+}*/
+/*fin texto del candidato*/
+/*
+p {
+	font-size: 12px;
+	font-weight: light;
+	color: #333333;
+}
+
+span a {
+	font-size: 18px;
+	color: #cccccc;
+	text-decoration: none;
+	margin: 0 10px;
+	transition: all 0.4s ease-in-out;
+	&:hover {
+		color: #ffffff;
+	}
+}
+
+/*img { width: 100%; height: auto; }*/
+
+/*
+.suppoprt-me {
+	display: inline-block;
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+	width: 20vw;
+	max-width: 250px;
+	min-width: 200px;
+	z-index: 9;
+	img {
+		width: 100px;
+		height: auto;
+	}
+}
+
+/*
+  @keyframes glowing{
+    0%{
+        background-position: 0 0;
+    }
+    50%{
+        background-position: 400% 0;
+    }
+    100%{
+        background-position: 0 0;
+    }
+  }*/
+  
+/*
+#lista-candidatos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #lista-candidatos li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #lista-candidatos h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  
+  #lista-candidatos p {
+    margin: 0;
+  }*/
+    /*
+.modal{*/
+   /* display: inline-block;*/
+    /*padding: 50px 300px;*/
+    /*width: 25px;*/
+   /* background-color: rgba(0, 255, 89, 0.91);
+    color: rgb(244, 255, 196);
+    background-image: linear-gradient(
+        rgba(216, 21, 184, 0.7),
+        rgba(169, 28, 103, 0.7),
+        rgba(64, 36, 83, 0.7)),
+        url(imagenes/inicio/inicio5.jpg);
+        background-position: center bottom;
+      background-repeat: no-repeat;
+      background-size: cover;*/
+/*}
+/*.modal:hover{
+    background-color: rgb(218, 37, 24);
+}*/
+/*
+  body,
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Helvetica', sans-serif;
+	background: rgb(26, 188, 156);
+	background: -moz-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+	background: -webkit-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+	background: linear-gradient(135deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+}
+*/
+/*
+.mostrar{
+    display: inline-block;
+    padding: 150px 300px;*/
+    /*width: 25px;*//*
+    background-color: rgba(0, 255, 89, 0.91);
+    color: rgb(244, 255, 196);
+}*/

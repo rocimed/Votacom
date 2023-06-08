@@ -1,0 +1,25 @@
+<!--Inicio formulario de registro-->
+        <div id="id03" class="modal">
+          <div class="modal-content-reg animate">
+            <div class="container">
+              <form class="formreg" id="register" action="http://localhost/registro.php" method="POST">
+                <h2>Registro</h2>
+                <label for="nombre">Nombre:</label>
+                <input class="form-control"type="text" id="nombre" name="nombre" required>
+                <label for="email">Email:</label>
+                <input class="form-control" type="email" id="email" name="email" required>
+                <label for="contrasena" >Contraseña:</label>
+                <input class="form-control" size="12" type="password" id="contrasena" name="contrasena" required>
+                <label for="confirmar-contrasena">Confirmar Contraseña:</label>
+                <input class="form-control" size="12" type="password" id="confirmar-contrasena" name="confirmar-contrasena" required>
+                <label for="direccion">Dirección:</label>
+                <input class="form-control" type="text" id="direccion" name="direccion" required>
+                <label for="telefono">Teléfono:</label>
+                <input class="form-control" type="number" min="1" max="99999999999" id="telefono" name="telefono" required><br>
+                <input class="btn btn-outline-success" value="Registrarse" onclick="comprobarClave()">
+		            <p class="error-message" id="error-message"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--Fin formulario de registro-->
